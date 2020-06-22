@@ -31,13 +31,13 @@ kind: Service
 apiVersion: v1
 metadata:
     labels:
-        app: shantascherla-microservice-service
-    name: shantascherla-microservice-service
+        app: shanta-solo-microservice-service
+    name: shanta-solo-microservice-service
     namespace: microservices
 spec:
     selector:
         source: demo
-        app: shantascherla-microservice
+        app: shanta-solo-microservice
     ports:
         -   name: web
             protocol: TCP
@@ -51,7 +51,7 @@ kind: Ingress
 metadata:
     annotations:
         nginx.ingress.kubernetes.io/rewrite-target: /$2
-    name: shantascherla-ingress
+    name: shanta-solo-ingress
     namespace: microservices
 spec:
     rules:
@@ -59,7 +59,7 @@ spec:
                 paths:
                     -   path: /shantascherla(/|$)(.*)
                         backend:
-                            serviceName: shantascherla-microservice-service
+                            serviceName: shanta-solo-microservice-service
                             servicePort: 30201
 
 
